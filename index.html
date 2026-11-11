@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Recuperatorio Práctico - Grupo 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 { color: #0078d4; }
+        pre { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 6px; overflow-x: auto; font-family: Consolas, monospace; }
+        a { color: #0078d4; text-decoration: none; font-weight: bold; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Examen Recuperatorio Práctico - Grupo 2</h1>
+    <p><strong>Estudiante:</strong> Javier Armando Lopez</p>
+    <p><strong>Materia:</strong> Programación para Seguridad Informática</p>
+
+    <hr>
+
+    <h2>Código del Script (<code>recuperatorio_grupo2.ps1</code>):</h2>
+    <pre>
+for ($i = 1; $i -le 3; $i++) {
+    Write-Host "========================================================" -ForegroundColor Cyan
+    
+    if ($i % 2 -eq 0) {
+        Write-Host "[Intento $i]: Verificación de red en iteración PAR" -ForegroundColor Yellow
+    } else {
+        Write-Host "[Intento $i]: Verificación de red en iteración IMPAR" -ForegroundColor Magenta
+    }
+
+    Write-Host "Fecha y hora exacta: $(Get-Date)" -ForegroundColor DarkGray
+
+    Write-Host "Ejecutando prueba de conectividad hacia 8.8.8.8 (Google DNS)..."
+    Test-Connection -TargetName "8.8.8.8" -Count 1
+
+    Start-Sleep -Seconds 2
+}
+
+Write-Host "========================================================" -ForegroundColor Green
+Write-Host "El monitoreo ha concluido con éxito." -ForegroundColor Green
+Write-Host "========================================================" -ForegroundColor Green
+    </pre>
+
+    <p>
+        👉 Código fuente en el repositorio: 
+        <a href="https://github.com/LopezJavierArmando/Recuperatorio-PowerShell-Grupo2">Repositorio de GitHub</a>
+    </p>
+</body>
+</html>
