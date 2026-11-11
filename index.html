@@ -5,57 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Examen Recuperatorio Práctico - Grupo 2</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f9;
-            color: #333;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
-        h1 { color: #0078d4; }
-        pre { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 6px; overflow-x: auto; font-family: Consolas, monospace; }
-        a { color: #0078d4; text-decoration: none; font-weight: bold; }
-        a:hover { text-decoration: underline; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            padding: 30px 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 850px;
+            width: 100%;
+            background-color: #1e293b;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border: 1px solid #334155;
+        }
+        h1 {
+            color: #38bdf8;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        .info {
+            background-color: #0f172a;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0 25px 0;
+            border-left: 4px solid #38bdf8;
+        }
+        .info p {
+            margin: 5px 0;
+            font-size: 1rem;
+        }
+        h2 {
+            color: #f1f5f9;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+        pre {
+            background-color: #090d16;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            border: 1px solid #334155;
+        }
+        .code-keyword { color: #569cd6; font-weight: bold; }
+        .code-variable { color: #9cdcfe; }
+        .code-string { color: #ce9178; }
+        .code-cmdlet { color: #dcdcaa; }
+        .footer-link {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid #334155;
+            text-align: center;
+        }
+        a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
-    <h1>Examen Recuperatorio Práctico - Grupo 2</h1>
-    <p><strong>Estudiante:</strong> Javier Armando Lopez</p>
-    <p><strong>Materia:</strong> Programación para Seguridad Informática</p>
+    <div class="container">
+        <h1>Examen Recuperatorio Práctico - Grupo 2</h1>
+        
+        <div class="info">
+            <p><strong>Estudiante:</strong> Javier Armando Lopez</p>
+            <p><strong>Materia:</strong> Programación para Seguridad Informática</p>
+            <p><strong>Tema:</strong> Script de Monitoreo de Red en PowerShell</p>
+        </div>
 
-    <hr>
-
-    <h2>Código del Script (<code>recuperatorio_grupo2.ps1</code>):</h2>
-    <pre>
-for ($i = 1; $i -le 3; $i++) {
-    Write-Host "========================================================" -ForegroundColor Cyan
+        <h2>Código Fuente del Script (<code>recuperatorio_grupo2.ps1</code>):</h2>
+        
+        <pre><code><span class="code-keyword">for</span> (<span class="code-variable">$i</span> = 1; <span class="code-variable">$i</span> -le 3; <span class="code-variable">$i</span>++) {
+    <span class="code-cmdlet">Write-Host</span> <span class="code-string">"========================================================"</span> -ForegroundColor Cyan
     
-    if ($i % 2 -eq 0) {
-        Write-Host "[Intento $i]: Verificación de red en iteración PAR" -ForegroundColor Yellow
-    } else {
-        Write-Host "[Intento $i]: Verificación de red en iteración IMPAR" -ForegroundColor Magenta
+    <span class="code-keyword">if</span> (<span class="code-variable">$i</span> % 2 -eq 0) {
+        <span class="code-cmdlet">Write-Host</span> <span class="code-string">"[Intento $i]: Verificación de red en iteración PAR"</span> -ForegroundColor Yellow
+    } <span class="code-keyword">else</span> {
+        <span class="code-cmdlet">Write-Host</span> <span class="code-string">"[Intento $i]: Verificación de red en iteración IMPAR"</span> -ForegroundColor Magenta
     }
 
-    Write-Host "Fecha y hora exacta: $(Get-Date)" -ForegroundColor DarkGray
+    <span class="code-cmdlet">Write-Host</span> <span class="code-string">"Fecha y hora exacta: $(Get-Date)"</span> -ForegroundColor DarkGray
 
-    Write-Host "Ejecutando prueba de conectividad hacia 8.8.8.8 (Google DNS)..."
-    Test-Connection -TargetName "8.8.8.8" -Count 1
+    <span class="code-cmdlet">Write-Host</span> <span class="code-string">"Ejecutando prueba de conectividad hacia 8.8.8.8 (Google DNS)..."</span>
+    <span class="code-cmdlet">Test-Connection</span> -TargetName <span class="code-string">"8.8.8.8"</span> -Count 1
 
-    Start-Sleep -Seconds 2
+    <span class="code-cmdlet">Start-Sleep</span> -Seconds 2
 }
 
-Write-Host "========================================================" -ForegroundColor Green
-Write-Host "El monitoreo ha concluido con éxito." -ForegroundColor Green
-Write-Host "========================================================" -ForegroundColor Green
-    </pre>
+<span class="code-cmdlet">Write-Host</span> <span class="code-string">"========================================================"</span> -ForegroundColor Green
+<span class="code-cmdlet">Write-Host</span> <span class="code-string">"El monitoreo ha concluido con éxito."</span> -ForegroundColor Green
+<span class="code-cmdlet">Write-Host</span> <span class="code-string">"========================================================"</span> -ForegroundColor Green</code></pre>
 
-    <p>
-        👉 Código fuente en el repositorio: 
-        <a href="https://github.com/LopezJavierArmando/Recuperatorio-PowerShell-Grupo2">Repositorio de GitHub</a>
-    </p>
+        <div class="footer-link">
+            <p>👉 Ver repositorio en GitHub: <a href="https://github.com/LopezJavierArmando/Recuperatorio-PowerShell-Grupo2" target="_blank">LopezJavierArmando/Recuperatorio-PowerShell-Grupo2</a></p>
+        </div>
+    </div>
 </body>
 </html>
